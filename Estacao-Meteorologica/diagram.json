@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Estação Meteorológica Simples",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -24.1, "left": 475, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 115.5,
+      "left": 330.6,
+      "attrs": { "temperature": "28.5", "humidity": "65" }
+    },
+    {
+      "type": "wokwi-ssd1306",
+      "id": "oled1",
+      "top": -41.3,
+      "left": 261.1,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 283.2,
+      "left": 325.85,
+      "rotate": 90,
+      "attrs": { "value": "10000" }
+    }
+  ],
+  "connections": [
+    [ "dht1:VCC", "esp:3V3", "red", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [] ],
+    [ "dht1:SDA", "r1:1", "green", [] ],
+    [ "r1:2", "esp:D4", "green", [] ],
+    [ "oled1:VCC", "esp:3V3", "red", [] ],
+    [ "oled1:GND", "esp:GND.2", "black", [] ],
+    [ "oled1:SDA", "esp:D21", "blue", [] ],
+    [ "oled1:SCL", "esp:D22", "yellow", [] ]
+  ],
+  "dependencies": {}
+}

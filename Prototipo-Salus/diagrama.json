@@ -1,0 +1,64 @@
+{
+    "version": 1,
+    "author": "ChatGPT",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-breadboard", "id": "bb1", "top": 429, "left": 50.8, "attrs": {} },
+      { "type": "board-esp32-devkit-v1", "id": "esp", "top": 669.28, "left": 369.6, "attrs": {} },
+      { "type": "wokwi-servo", "id": "servo1", "top": 439.6, "left": 777.6, "attrs": {} },
+      {
+        "type": "wokwi-lcd1602",
+        "id": "lcd1",
+        "top": 256,
+        "left": 207.2,
+        "attrs": { "pins": "i2c" }
+      },
+      { "type": "wokwi-buzzer", "id": "buzz1", "top": 328.8, "left": 549, "attrs": {} },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 466.8,
+        "left": 224.6,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 542.4,
+        "left": 220.25,
+        "rotate": 90,
+        "attrs": { "value": "330" }
+      }
+    ],
+    "connections": [
+      [ "servo1:PWM", "esp:18", "orange", [ "v0" ] ],
+      [ "lcd1:SDA", "esp:21", "green", [ "v0" ] ],
+      [ "lcd1:SCL", "esp:22", "blue", [ "v0" ] ],
+      [ "esp:19", "r1:1", "green", [ "v0" ] ],
+      [ "led1:C", "esp:GND.3", "black", [ "v0" ] ],
+      [ "buzz1:1", "esp:23", "purple", [ "v0" ] ],
+      [ "buzz1:2", "esp:GND.4", "black", [ "v0" ] ],
+      [ "lcd1:GND", "bb1:tn.6", "black", [ "h0" ] ],
+      [ "led1:A", "bb1:19t.d", "", [ "$bb" ] ],
+      [ "led1:C", "bb1:18t.d", "", [ "$bb" ] ],
+      [ "bb1:tn.14", "bb1:18t.a", "black", [ "v0" ] ],
+      [ "bb1:tn.50", "servo1:GND", "black", [ "v0" ] ],
+      [ "buzz1:1", "bb1:tn.43", "black", [ "v0" ] ],
+      [ "servo1:V+", "bb1:bp.50", "red", [ "h0" ] ],
+      [ "esp:VIN", "bb1:bp.22", "red", [ "h0" ] ],
+      [ "esp:GND.2", "bb1:tn.1", "black", [ "h-355.2", "v-364.7" ] ],
+      [ "lcd1:VCC", "bb1:bp.8", "red", [ "h0" ] ],
+      [ "bb1:13b.j", "esp:D21", "blue", [ "v345.6", "h345.6", "v-201.6" ] ],
+      [ "bb1:13b.f", "lcd1:SDA", "green", [ "v0" ] ],
+      [ "lcd1:SCL", "bb1:14b.f", "green", [ "h0" ] ],
+      [ "bb1:14b.j", "esp:D22", "orange", [ "v326.4", "h316.8", "v-211.2" ] ],
+      [ "r1:1", "bb1:19t.e", "", [ "$bb" ] ],
+      [ "r1:2", "bb1:19b.i", "", [ "$bb" ] ],
+      [ "bb1:19b.j", "esp:D19", "red", [ "v307.2", "h249.6", "v-153.6" ] ],
+      [ "buzz1:2", "bb1:54b.f", "red", [ "v0" ] ],
+      [ "bb1:54b.j", "esp:D23", "red", [ "v0" ] ],
+      [ "servo1:PWM", "bb1:58b.f", "cyan", [ "h0" ] ],
+      [ "bb1:58b.j", "esp:D18", "cyan", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
